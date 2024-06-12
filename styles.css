@@ -1,11 +1,40 @@
 body{
     display: block;
     text-align: center;
+    font-family: "Kanit", sans-serif;
+    margin-top: -20px;
 }
-input, button{
+h1{
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}
+input {
     margin: 10px;
+    font-family: "Kanit", sans-serif;
+    border-radius: 5px;
 }
-#github-widget {
+button{
+    margin: 10px;
+    font-family: "Kanit", sans-serif;
+    color: white;
+    background-color: black;
+    padding: 5px;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+section{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-left: 50px;
+}
+.profile-details{
+    text-align: left;
+}
+#profile-widget {
     box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.1);
     border: rgb(51, 53, 56) solid 2px;
     border-radius: 10px;
@@ -83,7 +112,7 @@ input, button{
     margin-bottom: 0;
 }
 
-#profile-link {
+#profile-link, #repo-link {
     display: block; /* Make the link a block element */
     width: 100%; /* Full width of the container */
     padding: 20px;
@@ -100,37 +129,95 @@ input, button{
     padding-bottom: 30px;
 }
 
-#profile-link:hover {
+#profile-link:hover, #repo-link:hover {
     background-color: grey;
     transition: 1s;
 }
 
-hr {
+#profile-widget hr {
     border: none;
     border-top: 1px solid #fff; /* Color of the horizontal rule */
     margin: 0; /* Remove default margin */
     z-index: 2;
 }
-
-.repositories {
-    margin-top: 20px;
+/* repo sytling */
+#repo-widget {
+    border: rgb(51, 53, 56) solid 2px;;
+    padding: 0;
+    width: 350px;
+    margin: 0;
+    text-align: left;
+    border-radius: 10px;
+    background-color: rgb(18, 28, 41);
+    color: #c0c0c0;
+    font-size: 15px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: none;
 }
-
-.repositories h3 {
-    margin-bottom: 10px;
+#repo-widget img {
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
-
-.repositories ul {
-    list-style-type: none;
-    padding: 0;
+#repo-widget .languages, #repo-widget {
+    margin-top: 10px;
+    text-align: left;
 }
-
-.repositories li {
-    margin-bottom: 10px;
+#repo-languages, #repo-widget h2, #repo-widget p{
+    margin-left: 20px;
+    margin-right: 20px;
 }
-
-.repositories a {
-    text-decoration: none;
-    color: #007bff;
+#repo-widget h2{
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 30px;
+}
+#repo-widget hr{
+    margin-bottom: 0;
+}
+.readme{
+    display: none;
+}
+.language-bar {
+    display: flex;
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+.language-bar div {
+    height: 100%;
+}
+.language-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+}
+.language-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.language-color {
+    width: 15px;
+    height: 10px;
+    margin-right: 10px;
+    border-radius: 800px;
+}
+.repo-info {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+.repo-info div {
+    display: flex;
+    align-items: center;
+}
+.repo-info i {
+    margin-right: 5px;
 }

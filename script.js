@@ -1,9 +1,8 @@
 async function fetchGitHubData() {
     const username = document.getElementById('username-input').value;
-    const token = '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'; // Replace with your personal access token
 
     if (!username) {
-        document.getElementById('github-widget').style.display = 'none';
+        document.getElementById('profile-widget').style.display = 'none';
         document.getElementById('error-message').textContent = '';
         return;
     }
@@ -16,7 +15,7 @@ async function fetchGitHubData() {
 
         if (!profileResponse.ok) {
             if (profileResponse.status === 404) {
-                document.getElementById('github-widget').style.display = 'none';
+                document.getElementById('profile-widget').style.display = 'none';
                 document.getElementById('error-message').textContent = 'User not found';
             } else {
                 throw new Error('Error fetching profile data');
@@ -26,7 +25,7 @@ async function fetchGitHubData() {
             const profileData = await profileResponse.json();
             const repos = await reposResponse.json();
 
-            document.getElementById('github-widget').style.display = 'block';
+            document.getElementById('profile-widget').style.display = 'block';
             document.getElementById('avatar').src = profileData.avatar_url;
             document.getElementById('name').textContent = profileData.name || profileData.login;
             document.getElementById('username').textContent = `${profileData.login}`;
@@ -47,7 +46,7 @@ async function fetchGitHubData() {
             const formattedDate = createdAt.toLocaleDateString(undefined, options);
 
             const accountAge = `${years} years, ${months} months`;
-            document.getElementById('account-age').innerHTML = `<i class="fa-solid fa-clock"></i> User Since ${formattedDate} ▪ (${accountAge})`;
+            document.getElementById('account-age').innerHTML = `<i class="fa-solid fa-calendar-days"></i> User Since ${formattedDate} ▪ (${accountAge})`;
 
             // const repoList = document.getElementById('repo-list');
             // repoList.innerHTML = ''; // Clear previous repo list
@@ -66,7 +65,7 @@ async function fetchGitHubData() {
         }
     } catch (error) {
         console.error('Error fetching GitHub data:', error);
-        document.getElementById('github-widget').style.display = 'none';
+        document.getElementById('profile-widget').style.display = 'none';
         document.getElementById('error-message').textContent = 'Error generating widget';
     }
 }

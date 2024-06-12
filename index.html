@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,33 +11,72 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    <h1>My GitHub Widgets</h1>
-    <input type="text" id="username-input" placeholder="Enter GitHub Username"><br>
-    <button onclick="fetchGitHubData()">Create Widget</button><br>
-    <p id="error-message" style="color: red;"></p>
-    <div id="github-widget" style="display:none">
-        <div class="profile">
-            <div class="fade-effect">
-                <img id="avatar" src="" alt="GitHub Avatar">
+    <h1>~My GitHub Widgets~</h1>
+    <section>
+        <div class="profile-details">
+            <h2>Profile Widget</h2>
+            <input type="text" id="username-input" placeholder="Enter GitHub Username"><br>
+            <button type="submit" onclick="fetchGitHubData()">Create Profile Widget</button><br>
+            <p id="error-message" style="color: red;"></p>
+        </div>
+        <div id="profile-widget" style="display:none">
+            <div class="profile">
+                <div class="fade-effect">
+                    <img id="avatar" src="" alt="GitHub Avatar">
+                </div>
+                <div class="names">
+                    <h2 id="name"></h2>
+                </div>
             </div>
-            <div class="names">
-                <h2 id="name"></h2>
+            <hr> <!-- HR element below the profile section -->
+            <div class="details">
+                <p id="username"></p>
+                <p id="followers"></p>
+                <p id="repos"></p>
+                <p id="contributions-count"></p>
+                <p id="account-age"></p>
+                <hr> <!-- HR element above the profile link -->
+                <a id="profile-link" href="" target="_blank">View Profile on GitHub <i
+                        class="fa-brands fa-github"></i></a>
             </div>
         </div>
-        <hr> <!-- HR element below the profile section -->
-        <div class="details">
-            <p id="username"></p>
-            <p id="followers"></p>
-            <p id="repos"></p>
-            <p id="contributions-count"></p>
-            <p id="account-age"></p>
+    </section>
+    <hr>
+    <section>
+        <div class="repo-details">
+            <h2>Repository Widget</h2>
+            <input id="repo-input" type="text" placeholder="Username/Repo-name"><br>
+            <button type="submit" onclick="fetchGitHubData1()">Create Repository Widget</button><br>
+            <p id="error-message1" style="color: red;"></p>
+        </div>
+        <div id="repo-widget">
+            <img id="repo-image" src="" alt="Repository Image">
+            <h2 id="repo-name"></h2>
+            <hr>
+            <p id="repo-owner"></p>
+            <p id="repo-created"></p>
+            <p id="repo-updated"></p>
+            <div class="repo-info">
+                <div><i class="fa-solid fa-star"></i><span id="repo-stars"></span></div>
+                <div><i class="fa-solid fa-code-fork"></i><span id="repo-forks"></span></div>
+                <div><i class="fa-solid fa-eye"></i><span id="repo-watch"></span></div>
+            </div>
+            <p>Languages:</p>
+            <div class="languages" id="repo-languages"></div>
+            <div class="language-bar" id="language-bar"></div>
+            <div class="readme" id="repo-readme"></div>
             <hr> <!-- HR element above the profile link -->
-            <a id="profile-link" href="" target="_blank">View Profile on GitHub <i class="fa-brands fa-github"></i></a>
+            <a id="repo-link" href="" target="_blank">View Repository on GitHub <i class="fa-brands fa-github"></i></a>
         </div>
-    </div>
+    </section>
     <script src="script.js"></script>
+    <script src="script1.js"></script>
 </body>
+
 </html>
