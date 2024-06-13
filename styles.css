@@ -197,6 +197,7 @@ section{
     display: flex;
     justify-content: space-between;
     font-size: 10px;
+    flex-wrap: wrap;
 }
 .language-list li {
     display: flex;
