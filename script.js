@@ -61,7 +61,7 @@ async function fetchGitHubData() {
             // });
 
             // Fetch GitHub contributions in the last year
-            getContributions(username, token);
+            //getContributions(username, token);
         }
     } catch (error) {
         console.error('Error fetching GitHub data:', error);
