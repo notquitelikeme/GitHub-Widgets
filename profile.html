@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Profile Widget</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div id="profile-widget" style="display:none">
+        <div class="profile">
+            <div class="fade-effect">
+                <img id="avatar" src="" alt="GitHub Avatar">
+            </div>
+            <div class="names">
+                <h2 id="name"></h2>
+            </div>
+        </div>
+        <hr>
+        <div class="details">
+            <p id="username"></p>
+            <p id="followers"></p>
+            <p id="repos"></p>
+            <p id="contributions-count"></p>
+            <p id="account-age"></p>
+            <hr>
+            <a id="profile-link" href="" target="_blank">View Profile on GitHub <i class="fa-brands fa-github"></i></a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const username = urlParams.get('username');
+            if (username) {
+                fetchGitHubData(username);
+            }
+        });
+    </script>
+</body>
+</html>

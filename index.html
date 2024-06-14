@@ -18,65 +18,78 @@
 
 <body>
     <h1>~My GitHub Widgets~</h1>
-    <section>
+    <textarea id="jsiframe-code" readonly rows="4" cols="80"></textarea>
         <div class="profile-details">
             <h2>Profile Widget</h2>
             <input type="text" id="username-input" placeholder="Enter GitHub Username"><br>
-            <button type="submit" onclick="fetchGitHubData()">Create Profile Widget</button><br>
+            <button type="submit" onclick="generatePIframe()">Create Profile Widget</button><br>
             <p id="error-message" style="color: red;"></p>
         </div>
-        <div id="profile-widget" style="display:none">
-            <div class="profile">
-                <div class="fade-effect">
-                    <img id="avatar" src="" alt="GitHub Avatar">
-                </div>
-                <div class="names">
-                    <h2 id="name"></h2>
-                </div>
-            </div>
-            <hr> <!-- HR element below the profile section -->
-            <div class="details">
-                <p id="username"></p>
-                <p id="followers"></p>
-                <p id="repos"></p>
-                <p id="contributions-count"></p>
-                <p id="account-age"></p>
-                <hr> <!-- HR element above the profile link -->
-                <a id="profile-link" href="" target="_blank">View Profile on GitHub <i
-                        class="fa-brands fa-github"></i></a>
-            </div>
+        <div id="iframe-container-p">
+            <h3>Preview:</h3>
+            <iframe id="profile-iframe" width="600" height="800"></iframe>
         </div>
-    </section>
+        <div>
+            <h3>Embed Code:</h3>
+            <textarea id="iframe-code-p" readonly rows="4" cols="80"></textarea>
+        </div>
     <hr>
-    <section>
-        <div class="repo-details">
-            <h2>Repository Widget</h2>
-            <input id="repo-input" type="text" placeholder="Username/Repo-name"><br>
-            <button type="submit" onclick="fetchGitHubData1()">Create Repository Widget</button><br>
-            <p id="error-message1" style="color: red;"></p>
-        </div>
-        <div id="repo-widget">
-            <img id="repo-image" src="" alt="Repository Image">
-            <h2 id="repo-name"></h2>
-            <hr>
-            <p id="repo-owner"></p>
-            <p id="repo-created"></p>
-            <p id="repo-updated"></p>
-            <div class="repo-info">
-                <div><i class="fa-solid fa-star"></i><span id="repo-stars"></span></div>
-                <div><i class="fa-solid fa-code-fork"></i><span id="repo-forks"></span></div>
-                <div><i class="fa-solid fa-eye"></i><span id="repo-watch"></span></div>
-            </div>
-            <p>Languages:</p>
-            <div class="languages" id="repo-languages"></div>
-            <div class="language-bar" id="language-bar"></div>
-            <div class="readme" id="repo-readme"></div>
-            <hr> <!-- HR element above the profile link -->
-            <a id="repo-link" href="" target="_blank">View Repository on GitHub <i class="fa-brands fa-github"></i></a>
-        </div>
-    </section>
+    <div class="repo-details">
+        <h2>Repository Widget</h2>
+        <input id="repo-input" type="text" placeholder="Username/Repo-name"><br>
+        <button id="generate-button" type="button" onclick="generateIframe()">Generate Repository Widget</button><br>
+        <p id="error-message1" style="color: red;"></p>
+    </div>
+    <div id="iframe-container">
+        <h3>Preview:</h3>
+        <iframe id="repo-iframe" src="" width="100%" height="100%"></iframe>
+    </div>
+    <div>
+        <h3>Embed Code:</h3>
+        <textarea id="iframe-code" readonly rows="4" cols="80"></textarea>
+    </div>
     <script src="script.js"></script>
     <script src="script1.js"></script>
+    <script>
+        function generateIframe() {
+            const input = document.getElementById('repo-input').value.trim();
+            const [owner, repo] = input.split('/');
+
+            if (!owner || !repo) {
+                document.getElementById('error-message').innerText = 'Both fields are required!';
+                return;
+            }
+
+            const jsiframeSrc = `notquitelikeme.github.io/GitHub-Widgets/framescript.js`;
+            const iframeSrc = `notquitelikeme.github.io/GitHub-Widgets/repo.html?owner=${encodeURIComponent(owner)}&repo=${encodeURIComponent(repo)}`;
+            const iframeTag = `<iframe src="${iframeSrc}" width="600" height="800"></iframe>`;
+            const jsiframeTag = `${jsiframeSrc}`;
+
+            document.getElementById('repo-iframe').src = iframeSrc;
+            document.getElementById('iframe-code').value = iframeTag;
+            document.getElementById('js-iframe-code').value = jsiframeTag;
+
+            document.getElementById('error-message').innerText = '';
+        }
+    </script>
+    <script>
+        function generatePIframe() {
+            const username = document.getElementById('username-input').value;
+
+            if (!username) {
+                document.getElementById('error-message').textContent = 'Please enter a GitHub username';
+                return;
+            }
+
+            const PiframeSrc = `notquitelikeme.github.io/GitHub-Widgets/profile.html?username=${encodeURIComponent(username)}`;
+            const PiframeTag = `<iframe src="${PiframeSrc}" width="600" height="800"></iframe>`;
+
+            document.getElementById('profile-iframe').src = PiframeSrc;
+            document.getElementById('iframe-code-p').value = PiframeTag;
+
+            document.getElementById('error-message').innerText = '';
+        }
+    </script>
 </body>
 
 </html>

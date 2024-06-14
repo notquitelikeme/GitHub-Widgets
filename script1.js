@@ -286,24 +286,40 @@ async function displayRepoWidget(owner, repo) {
     }
 }
 
-function fetchGitHubData1() {
-    const input = document.getElementById('repo-input').value.trim();
-    const [owner, repo] = input.split('/');
-    if (owner && repo) {
-        displayRepoWidget(owner, repo);
-    } else {
-        document.getElementById('error-message1').innerText = 'Invalid input. Please use the format "Username/Repo-name".';
-
-        // Hide the repository widget if the input is invalid
-        document.getElementById('repo-widget').style.display = 'none';
-    }
+function fetchGitHubData1(owner, repo) {
+    displayRepoWidget(owner, repo);
 }
 
-// Hide the repository widget when the input is cleared
-document.getElementById('repo-input').addEventListener('input', () => {
-    const input = document.getElementById('repo-input').value.trim();
-    if (input === '') {
-        document.getElementById('repo-widget').style.display = 'none';
-        document.getElementById('error-message1').innerText = '';
+function getQueryParams() {
+    const params = {};
+    const queryString = window.location.search.slice(1);
+    const pairs = queryString.split('&');
+
+    pairs.forEach(pair => {
+        const [key, value] = pair.split('=');
+        params[key] = decodeURIComponent(value || '');
+    });
+
+    return params;
+}
+
+window.onload = function() {
+    const params = getQueryParams();
+    const owner = params.owner;
+    const repo = params.repo;
+
+    if (owner && repo) {
+        fetchGitHubData1(owner, repo);
     }
+};
+
+// Hide the repository widget when the input is cleared
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('repo-input').addEventListener('input', () => {
+        const input = document.getElementById('repo-input').value.trim();
+        if (input === '') {
+            document.getElementById('repo-widget').style.display = 'none';
+            document.getElementById('error-message1').innerText = '';
+        }
+    })
 });
