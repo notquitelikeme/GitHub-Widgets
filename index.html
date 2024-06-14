@@ -18,7 +18,6 @@
 
 <body>
     <h1>~My GitHub Widgets~</h1>
-    <textarea id="jsiframe-code" readonly rows="4" cols="80"></textarea>
         <div class="profile-details">
             <h2>Profile Widget</h2>
             <input type="text" id="username-input" placeholder="Enter GitHub Username"><br>
@@ -60,14 +59,11 @@
                 return;
             }
 
-            const jsiframeSrc = `notquitelikeme.github.io/GitHub-Widgets/framescript.js`;
             const iframeSrc = `repo.html?owner=${encodeURIComponent(owner)}&repo=${encodeURIComponent(repo)}`;
             const iframeTag = `<iframe src="${iframeSrc}" width="600" height="800"></iframe>`;
-            const jsiframeTag = `${jsiframeSrc}`;
 
             document.getElementById('repo-iframe').src = iframeSrc;
             document.getElementById('iframe-code').value = iframeTag;
-            document.getElementById('js-iframe-code').value = jsiframeTag;
 
             document.getElementById('error-message').innerText = '';
         }
