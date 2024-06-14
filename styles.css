@@ -27,9 +27,11 @@ button{
 }
 section{
     display: flex;
-    justify-content: space-between;
-    width: 80%;
+    width: 85%;
     margin-left: 50px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
 }
 .profile-details{
     text-align: left;
@@ -226,7 +228,21 @@ section{
 }
 textarea {
     width: 300px;      /* Set the desired width */
-    height: 150px;     /* Set the desired height */
+    height: 200px;     /* Set the desired height */
     resize: none;      /* Disable resizing */
     overflow: auto;    /* Add scrollbars if content overflows */
+}
+iframe{
+    border: none;
+    width: 130%;
+}
+#profile-iframe{
+    height: 310px;
+}
+#repo-iframe{
+    height: 550px;
+}
+#script-frame{
+    height: 50px;
+    width: 50%;
 }
