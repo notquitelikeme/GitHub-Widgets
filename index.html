@@ -61,7 +61,7 @@
             }
 
             const jsiframeSrc = `notquitelikeme.github.io/GitHub-Widgets/framescript.js`;
-            const iframeSrc = `notquitelikeme.github.io/GitHub-Widgets/repo.html?owner=${encodeURIComponent(owner)}&repo=${encodeURIComponent(repo)}`;
+            const iframeSrc = `repo.html?owner=${encodeURIComponent(owner)}&repo=${encodeURIComponent(repo)}`;
             const iframeTag = `<iframe src="${iframeSrc}" width="600" height="800"></iframe>`;
             const jsiframeTag = `${jsiframeSrc}`;
 
@@ -81,7 +81,7 @@
                 return;
             }
 
-            const PiframeSrc = `notquitelikeme.github.io/GitHub-Widgets/profile.html?username=${encodeURIComponent(username)}`;
+            const PiframeSrc = `profile.html?username=${encodeURIComponent(username)}`;
             const PiframeTag = `<iframe src="${PiframeSrc}" width="600" height="800"></iframe>`;
 
             document.getElementById('profile-iframe').src = PiframeSrc;
