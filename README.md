@@ -12,14 +12,16 @@ Include this script tag together with the personalized iframe code on your HTML 
 <script src="https://git-hub-widgets.vercel.app/framescript.js"></script>
 <iframe class="PFrame" title="profile-frame" src="https://git-hub-widgets.vercel.app/profile.html?username=notquitelikeme"></iframe>
 ```
-![Screenshot_16-6-2024_0833_git-hub-widgets vercel app](https://github.com/notquitelikeme/GitHub-Widgets/assets/137330345/728d053c-d25b-48d6-85c4-0af3b0ba8159)
+![Screenshot_16-6-2024_02149_git-hub-widgets vercel app](https://github.com/notquitelikeme/GitHub-Widgets/assets/137330345/c12ad0a1-2492-461e-8b67-e7e9abc45a00)
+
 ### Repo Widget Example
 ```html
 <script src="https://git-hub-widgets.vercel.app/framescript.js"></script>
 <iframe class="Frame" title="repo-frame" src="https://git-hub-widgets.vercel.app/repo.html?owner=notquitelikeme&repo=GitHub-Widgets"></iframe>
 ```
-![Screenshot_16-6-2024_01138_git-hub-widgets vercel app](https://github.com/notquitelikeme/GitHub-Widgets/assets/137330345/b02ebd67-27b8-407c-a2ef-596ba4f55ce0)
-Note: Repo Widget canvas generates random colour upon generation or reload
+![Screenshot_16-6-2024_0202_git-hub-widgets vercel app](https://github.com/notquitelikeme/GitHub-Widgets/assets/137330345/c8707661-fd21-4671-934a-51116053a1fd)
+
+Note: Repo Widget canvas generates random colour upon generation or reload <br>
 <img alt="GitHub License" src="https://img.shields.io/github/languages/count/notquitelikeme/GitHub-Widgets">
 <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/notquitelikeme/GitHub-Widgets">
 <img alt="GitHub deployments" src="https://img.shields.io/github/deployments/notquitelikeme/GitHub-Widgets/:environment">
