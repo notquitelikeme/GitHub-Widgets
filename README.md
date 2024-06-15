@@ -12,7 +12,7 @@ Include this script tag together with the personalized iframe code on your HTML 
 <script src="https://git-hub-widgets.vercel.app/framescript.js"></script>
 <iframe class="PFrame" title="profile-frame" src="https://git-hub-widgets.vercel.app/profile.html?username=notquitelikeme"></iframe>
 ```
-<img src="https://git-hub-widgets.vercel.app/profile.html?username=notquitelikeme">
+![Screenshot_16-6-2024_02149_git-hub-widgets vercel app](https://github.com/notquitelikeme/GitHub-Widgets/assets/137330345/da0b538d-1904-473c-b916-31e1b021703c)
 
 ### Repo Widget Example
 ```html
