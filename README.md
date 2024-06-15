@@ -1,7 +1,7 @@
 # GitHub Widgets
 GitHub Widgets is an unofficial GitHub widgets service that allows one to embed their own widgets based on their GitHub profile and/or repository information.
 ## Usage
-Visit my [site](git-hub-widgets.vercel.app) to generate your widgets.<br>
+Visit my site "https://git-hub-widgets.vercel.app" to generate your widgets.<br>
 Include this script tag together with the personalized iframe code on your HTML file to generate widget
 ```html
 <script src="https://git-hub-widgets.vercel.app/framescript.js"></script>
