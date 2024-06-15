@@ -4,7 +4,6 @@
 <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/notquitelikeme/GitHub-Widgets">
 <img alt="GitHub forks" src="https://img.shields.io/github/forks/notquitelikeme/GitHub-Widgets">
 <img alt="GitHub License" src="https://img.shields.io/github/license/notquitelikeme/GitHub-Widgets?style=plastic">
-<br>
 # GitHub Widgets
 GitHub Widgets is an unofficial GitHub widgets service that allows one to embed their own widgets based on their GitHub profile and/or repository information.
 ## Usage
