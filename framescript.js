@@ -17,6 +17,6 @@ function styleIframesByClass(className, height, width) {
 
 // Call the functions when the window loads
 window.onload = function() {
-    styleIframesByClass('Frame', '550px', '50%');
+    styleIframesByClass('Frame', '550px', '20%');
     styleIframesByClass('PFrame', '310px', '100%');
 };
