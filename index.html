@@ -8,62 +8,246 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1059149013243103"
-        crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Kanit:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        /* GENERAL STYLES */
+        body {
+            margin: 0;
+            font-family: 'Kanit', sans-serif;
+            background-color: #f5f6fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Cinzel', serif;
+            margin: 0.5em 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 5px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* HEADER */
+        header {
+            background: #436f00;
+            color: #fff;
+            width: 100%;
+            padding: 5px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        /* SCRIPT TEXTAREA */
+        #script-frame {
+            width: 100%;
+            max-width: 600px;
+            height: 20px;
+            padding: 5px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            resize: none;
+            margin-bottom: 5px;
+            margin-top: -50px;
+        }
+
+        /* WIDGET SECTIONS */
+        section {
+            background: #fff;
+            border-radius: 15px;
+            padding: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        section h2 {
+            width: 100%;
+            color: #436f00;
+            font-size: 1.8rem;
+            border-bottom: 1px solid #436f00;
+            padding-bottom: 2px;
+        }
+
+        
+
+        button:hover {
+            background-color: #365400;
+        }
+
+        .widgets-wrapper {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            /* wraps on smaller screens */
+        }
+
+        .widget {
+            flex: 1 1 45%;
+            /* take about 45% of width each */
+            background: #fff;
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .embed-container {
+            display: flex;
+            flex-direction: column;
+            /* stack elements vertically */
+            gap: 5px;
+        }
+
+        /* Inputs and buttons inside widgets */
+        .widget input[type="text"] {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .widget button {
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background-color: #436f00;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .widget button:hover {
+            background-color: #365400;
+        }
+
+        /* Textareas and iframes */
+        .widget textarea {
+            width: 100%;
+            height: 30px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-family: monospace;
+            resize: none;
+        }
+
+        .widget iframe {
+            width: 100%;
+            border-radius: 8px;
+            border: transparent;
+            height: 500px;
+        }
+
+        /* Responsive: stack widgets on smaller screens */
+        @media (max-width: 900px) {
+            .widgets-wrapper {
+                flex-direction: column;
+            }
+
+            .widget {
+                flex: 1 1 100%;
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            width: 100%;
+            background-color: #436f00;
+            color: white;
+            padding: 5px;
+            margin-top: auto;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            section {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            input[type="text"] {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="head">
+    <header>
         <h1>My GitHub Widgets</h1>
+    </header>
+
+    <div class="container">
+        <p>Include this script tag in your webpage:</p>
+        <textarea id="script-frame" readonly></textarea>
+
+        <div class="widgets-wrapper">
+            <!-- PROFILE WIDGET -->
+            <section class="widget">
+                <h2>Profile Widget</h2>
+                <div class="embed-container">
+                    <div style="display: flex; gap: 2px;">
+                        <input type="text" id="username-input" placeholder="Enter GitHub Username">
+                        <button onclick="generatePIframe()">Create Profile Widget</button>
+                    </div>
+                    <p id="error-message" class="error"></p>
+                    <h3>Embed Code:</h3>
+                    <textarea id="iframe-code-p" readonly></textarea>
+                    <h3>Preview:</h3>
+                    <iframe id="profile-iframe"></iframe>
+                </div>
+            </section>
+
+            <!-- REPO WIDGET -->
+            <section class="widget">
+                <h2>Repository Widget</h2>
+                <div class="embed-container">
+                    <div style="display: flex; gap: 2px;">
+                        <input type="text" id="repo-input" placeholder="Username/Repo-name">
+                        <button onclick="generateIframe()">Generate Repository Widget</button>
+                    </div>
+                    <p id="error-message1" class="error"></p>
+                    <h3>Embed Code:</h3>
+                    <textarea id="iframe-code" readonly></textarea>
+                    <h3>Preview:</h3>
+                    <iframe id="repo-iframe"></iframe>
+                </div>
+            </section>
+        </div>
     </div>
-    <p>Include this script tag in your webpage</p>
-    <textarea name="" id="script-frame" readonly rows="4" cols="80"></textarea>
-    <section>
-        <div class="profile-details">
-            <h2>Profile Widget</h2>
-            <input type="text" id="username-input" placeholder="Enter GitHub Username"><br>
-            <button type="submit" onclick="generatePIframe()">Create Profile Widget</button><br>
-            <p id="error-message" style="color: red;"></p>
-        </div>
-        <div>
-            <h3>Embed Code:</h3>
-            <textarea id="iframe-code-p" readonly rows="4" cols="80"></textarea>
-        </div>
-        <div id="iframe-container-p">
-            <h3>Preview:</h3>
-            <iframe id="profile-iframe"></iframe>
-        </div>
-    </section>
-    <hr>
-    <section>
-        <div class="repo-details">
-            <h2>Repository Widget</h2>
-            <input id="repo-input" type="text" placeholder="Username/Repo-name"><br>
-            <button id="generate-button" type="button" onclick="generateIframe()">Generate Repository
-                Widget</button><br>
-            <p id="error-message1" style="color: red;"></p>
-        </div>
-        <div>
-            <h3>Embed Code:</h3>
-            <textarea id="iframe-code" readonly rows="4" cols="80"></textarea>
-        </div>
-        <div id="iframe-container">
-            <h3>Preview:</h3>
-            <iframe id="repo-iframe" src=""></iframe>
-        </div>
-    </section>
+
     <footer>
-        <h3>Created by: <a href="https://github.com/notquitelikeme">Dennis Magaki(notquitelikeme)</a></h3>
-        <h4>Notes: </h4>
-        <p>Watching Value in Repository Widgets may not be correct, might resemble value in Stars : looking into problem
-        </p>
-        <p>Errors in console resulting from usage of widgets can be ignored unless it is necessary : looking to rectify
-        </p>
+        <h3>Created by: <a href="https://github.com/DennisMagaki">Dennis Magaki</a></h3>
     </footer>
+
     <script src="script.js"></script>
     <script src="script1.js"></script>
     <script>
@@ -72,7 +256,7 @@
             const [owner, repo] = input.split('/');
 
             if (!owner || !repo) {
-                document.getElementById('error-message').innerText = 'Both fields are required!';
+                document.getElementById('error-message1').innerText = 'Both fields are required!';
                 return;
             }
 
@@ -82,10 +266,9 @@
             document.getElementById('repo-iframe').src = iframeSrc;
             document.getElementById('iframe-code').value = iframeTag;
 
-            document.getElementById('error-message').innerText = '';
+            document.getElementById('error-message1').innerText = '';
         }
-    </script>
-    <script>
+
         function generatePIframe() {
             const username = document.getElementById('username-input').value;
 
@@ -102,8 +285,7 @@
 
             document.getElementById('error-message').innerText = '';
         }
-    </script>
-    <script>
+
         function displayScriptTag() {
             const scriptSrc = `https://git-hub-widgets.vercel.app/framescript.js`;
             const scriptTag = `<script src="${scriptSrc}"><\/script>`;
